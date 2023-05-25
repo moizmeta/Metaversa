@@ -124,7 +124,7 @@ const Player = () => {
                 walkDirection.applyAxisAngle(rotateAngle,newDirectionOffset);
 
                 // run/walk velocity
-                const velocity = currentAction.current == "run" ? 5 : 1;
+                const velocity = currentAction.current == "run" ? 5 : 2;
                 // move model & camera 
                 const moveX = walkDirection.x * velocity * delta;
                 const moveZ = walkDirection.z * velocity * delta;
