@@ -2,7 +2,7 @@
 import {useState, useEffect} from "react";
 
 
-export const useInput =()=>{
+export const useInput:any =()=>{
     const [input,setInput] = useState({
 
         forward:false,

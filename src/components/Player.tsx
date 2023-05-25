@@ -12,7 +12,7 @@ let rotateQuarternion = new THREE.Quaternion();
 let cameraTraget = new THREE.Vector3();
 
 
-const directionOffset = ({forward , backward , left,right })=>{
+const directionOffset = ({forward , backward , left, right })=>{
     var directionOffset =0;
 
     if(forward){
@@ -85,8 +85,8 @@ const Player = () => {
       if(currentAction.current != action){
         const nextActionToPlay = actions[action];
         const current = actions[currentAction.current];
-        current?.fadeOut(0.2);
-        nextActionToPlay?.reset().fadeIn(0.2).play();
+        current?.fadeOut(0.1);
+        nextActionToPlay?.reset().fadeIn(0.1).play();
         currentAction.current = action;
       }
       // actions?.walk?.play();
@@ -115,7 +115,7 @@ const Player = () => {
                     rotateAngle,
                     angleYCameraDirection + newDirectionOffset
                 );
-                model.scene.quaternion.rotateTowards(rotateQuarternion,0.2);
+                model.scene.quaternion.rotateTowards(rotateQuarternion,0.5);
 
                 //calculate direction
                 camera.getWorldDirection(walkDirection);
@@ -124,7 +124,7 @@ const Player = () => {
                 walkDirection.applyAxisAngle(rotateAngle,newDirectionOffset);
 
                 // run/walk velocity
-                const velocity = currentAction.current == "run" ? 10 : 5;
+                const velocity = currentAction.current == "run" ? 5 : 1;
                 // move model & camera 
                 const moveX = walkDirection.x * velocity * delta;
                 const moveZ = walkDirection.z * velocity * delta;
